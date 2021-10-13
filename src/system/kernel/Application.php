@@ -2,19 +2,16 @@
 
 namespace ksoftm\system\kernel;
 
-use ksoftm\app\http\middleware\LangMiddleware;
-use ksoftm\system\controller\Controller;
-use ksoftm\system\core\Config;
-use ksoftm\system\core\Env;
-use ksoftm\system\database\connection\MySQLDataDrive;
-use ksoftm\system\database\QueryBuilder;
 use ksoftm\system\MDQ;
-use ksoftm\system\middleware\MiddlewareStake;
-use ksoftm\system\utils\html\BuildMixer;
-use ksoftm\system\utils\html\Mixer;
+use ksoftm\system\core\Env;
+use ksoftm\system\core\Config;
+use function ksoftm\system\request_dir;
 use ksoftm\system\utils\io\FileManager;
+use ksoftm\system\controller\Controller;
 use ksoftm\system\utils\SingletonFactory;
-
+use ksoftm\system\middleware\MiddlewareStake;
+use ksoftm\app\http\middleware\LangMiddleware;
+use ksoftm\system\database\connection\MySQLDataDrive;
 
 class Application extends SingletonFactory
 {
@@ -88,7 +85,7 @@ class Application extends SingletonFactory
 
         // TODO add error display settings
 
-        //TODO:  configure the app hear
+        //TODO:  configure the app in hear
 
         request_dir(root . '/src/router');
     }
@@ -96,7 +93,6 @@ class Application extends SingletonFactory
 
     public function run()
     {
-        //TODO:  run the app hear
         MiddlewareStake::getInstance()
             ->add([new LangMiddleware()])
             ->handle(Request::getInstance());

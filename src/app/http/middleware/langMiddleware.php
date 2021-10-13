@@ -23,9 +23,7 @@ class LangMiddleware implements MiddlewareFactory
                 date_create('+1 year')->getTimestamp()
             )->start();
         }
-
-
-
+        
         return $next($request);
     }
 }
