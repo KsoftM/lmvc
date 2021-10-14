@@ -10,7 +10,7 @@ class Env
 {
     public static function load(string $path)
     {
-        $f = FileManager::new($path);
+        $f = new FileManager($path);
 
         $data = explode(PHP_EOL, $f->read());
 

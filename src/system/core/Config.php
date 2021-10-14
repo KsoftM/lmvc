@@ -14,7 +14,7 @@ class Config
             $name = array_shift($path);
         }
 
-        $f = FileManager::new(root . "/src/config/$name.php");
+        $f = new FileManager(root . "/src/config/$name.php");
 
         if ($f->isExist()) {
             $data = include($f->getPath());

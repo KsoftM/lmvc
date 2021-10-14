@@ -32,11 +32,12 @@ MDQ::Config(
 Make::initPath([
     Make::FUNC_CONTROLLER =>  './src/app/http/controllers',
     Make::FUNC_MODEL =>  './src/app/http/model',
-    Make::FUNC_MIGRATION =>  './migrations'
+    Make::FUNC_MIGRATION =>  './migrations',
+    Make::FUNC_ENV_KEY => '/.env',
 ]);
 
 $args = $argv;
 array_shift($args);
 
-Make::process($args, root);
+Make::process($args, root, ['APP_KEY', 'STORAGE_KEY']);
 exit;

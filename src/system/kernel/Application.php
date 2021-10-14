@@ -2,16 +2,18 @@
 
 namespace ksoftm\system\kernel;
 
+require_once root . '/vendor/autoload.php';
+
 use ksoftm\system\MDQ;
 use ksoftm\system\core\Env;
 use ksoftm\system\core\Config;
-use function ksoftm\system\request_dir;
-use ksoftm\system\utils\io\FileManager;
 use ksoftm\system\controller\Controller;
 use ksoftm\system\utils\SingletonFactory;
 use ksoftm\system\middleware\MiddlewareStake;
 use ksoftm\app\http\middleware\LangMiddleware;
 use ksoftm\system\database\connection\MySQLDataDrive;
+use ksoftm\system\utils\io\FileManager;
+use ksoftm\system\utils\View;
 
 class Application extends SingletonFactory
 {
@@ -73,7 +75,7 @@ class Application extends SingletonFactory
             $dbConn['collation']
         );
 
-        $f = FileManager::new(root . '/src/app/lang');
+        $f = new FileManager(root . "/src/app/lang");
 
         foreach ($f->getDirectoryFiles() as $value) {
             if ($value instanceof FileManager) {
@@ -81,9 +83,16 @@ class Application extends SingletonFactory
             }
         }
 
-        Controller::config(root . '/resources/view', $lang);
+        // configure the rout files and language data
+        View::config(root . '/resources/view', $lang);
 
-        // TODO add error display settings
+        // trigger display errors
+        if (Env::get('APP_DEBUG', false) == true) {
+            // error_reporting(-1);
+            ini_set('display_errors', 1);
+        } else {
+            ini_set('display_errors', 0);
+        }
 
         //TODO:  configure the app in hear
 
