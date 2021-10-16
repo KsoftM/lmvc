@@ -1,13 +1,14 @@
 <?php
 
+use ksoftm\system\MDQ;
+use ksoftm\system\core\Env;
+use ksoftm\system\core\Config;
+use ksoftm\system\console\Make;
+use ksoftm\system\database\connection\MySQLDataDrive;
+
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use ksoftm\system\core\Config;
-use ksoftm\system\core\Env;
-use ksoftm\system\database\connection\MySQLDataDrive;
-use ksoftm\system\MDQ;
-use ksoftm\system\utils\console\Make;
 
 define('root', __DIR__);
 
@@ -33,7 +34,8 @@ Make::initPath([
     Make::FUNC_CONTROLLER =>  './src/app/http/controllers',
     Make::FUNC_MODEL =>  './src/app/http/model',
     Make::FUNC_MIGRATION =>  './migrations',
-    Make::FUNC_ENV_KEY => '/.env',
+    Make::FUNC_MIDDLEWARE => './src/app/http/middleware',
+    Make::FUNC_ENV_KEY => './.env',
 ]);
 
 $args = $argv;

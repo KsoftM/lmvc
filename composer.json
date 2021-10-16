@@ -7,7 +7,10 @@
     "type": "project",
     "require": {
         "php": "^8.0",
-        "ksoftm/mvc": "^0.0.15"
+        "ksoftm/utility": "^0.1.16",
+        "ksoftm/mini-data": "^0.1.16",
+        "ksoftm/routing-system": "^0.1.16",
+        "ksoftm/mvc": "^0.1.16"
     },
     "license": "MIT",
     "autoload": {
@@ -32,6 +35,24 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
-    "minimum-stability": "stable",
-    "version": "0.1.2"
+    "repositories":[
+        {
+            "type": "path",
+            "url": "./../mvc"
+        },
+        {
+            "type": "path",
+            "url": "./../RoutingSystem"
+        },
+        {
+            "type": "path",
+            "url": "./../MiniData"
+        },
+        {
+            "type": "path",
+            "url": "./../Utility"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "0.1.16"
 }

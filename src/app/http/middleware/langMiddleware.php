@@ -12,7 +12,7 @@ class LangMiddleware implements MiddlewareFactory
 {
     public function handle(Request $request, Closure $next): mixed
     {
-
+        
         if ($request->exists('lang')) {
             $cookie = Cookie::make('lang');
             $request->lang = $cookie->get();
