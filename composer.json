@@ -10,7 +10,7 @@
         "ksoftm/utility": "^0.1.17",
         "ksoftm/mini-data": "^0.1.17",
         "ksoftm/routing-system": "^0.1.17",
-        "ksoftm/mvc": "^0.1.16"
+        "ksoftm/mvc": "^0.1.17"
     },
     "license": "MIT",
     "autoload": {
@@ -35,24 +35,6 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
-    "repositories":[
-        {
-            "type": "path",
-            "url": "./../mvc"
-        },
-        {
-            "type": "path",
-            "url": "./../RoutingSystem"
-        },
-        {
-            "type": "path",
-            "url": "./../MiniData"
-        },
-        {
-            "type": "path",
-            "url": "./../Utility"
-        }
-    ],
     "minimum-stability": "dev",
     "version": "0.1.17"
 }

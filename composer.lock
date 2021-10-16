@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b05e7e981a829d9f8ddcddeee08ee0e",
+    "content-hash": "8b1caac2725f4a61624f9f552e4ef32e",
     "packages": [
         {
             "name": "ksoftm/mini-data",
             "version": "0.1.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/MiniData.git",
+                "reference": "b5fd0bb8cfe60e00dc3d3c362196a29b98553c8c"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../MiniData",
-                "reference": "0f91f719212334d770f48e32f5595b7e5802b6e8"
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/MiniData/zipball/b5fd0bb8cfe60e00dc3d3c362196a29b98553c8c",
+                "reference": "b5fd0bb8cfe60e00dc3d3c362196a29b98553c8c",
+                "shasum": ""
             },
             "require": {
                 "ksoftm/utility": "^0.1.17",
@@ -24,6 +30,7 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -34,17 +41,25 @@
                 }
             ],
             "description": "content database easily",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/KsoftM/MiniData/issues",
+                "source": "https://github.com/KsoftM/MiniData/tree/v0.1.17"
+            },
+            "time": "2021-10-16T05:47:28+00:00"
         },
         {
             "name": "ksoftm/mvc",
             "version": "0.1.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/mvc.git",
+                "reference": "77acf51f057e52a7155de143d6961cd7f72ec9c3"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../mvc",
-                "reference": "787de3310e7cae67e98d46fa835b4a5e48aa35aa"
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/mvc/zipball/77acf51f057e52a7155de143d6961cd7f72ec9c3",
+                "reference": "77acf51f057e52a7155de143d6961cd7f72ec9c3",
+                "shasum": ""
             },
             "require": {
                 "ksoftm/mini-data": "^0.1.17",
@@ -61,6 +76,7 @@
                     "ksoftm\\system\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -71,17 +87,25 @@
                 }
             ],
             "description": "Basic mvc implementation.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/KsoftM/mvc/issues",
+                "source": "https://github.com/KsoftM/mvc/tree/v0.1.17"
+            },
+            "time": "2021-10-16T05:46:52+00:00"
         },
         {
             "name": "ksoftm/routing-system",
             "version": "0.1.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/RoutingSystem.git",
+                "reference": "e07270ef4df247056a13d772a5b849b5b45e7878"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../RoutingSystem",
-                "reference": "56f22b70aa86b1c3d249dfdc55e91700e6933d8a"
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/e07270ef4df247056a13d772a5b849b5b45e7878",
+                "reference": "e07270ef4df247056a13d772a5b849b5b45e7878",
+                "shasum": ""
             },
             "require": {
                 "ksoftm/utility": "^0.1.17",
@@ -96,6 +120,7 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -106,17 +131,25 @@
                 }
             ],
             "description": "Routing system for PHP projects.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/KsoftM/RoutingSystem/issues",
+                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.17"
+            },
+            "time": "2021-10-16T05:46:15+00:00"
         },
         {
             "name": "ksoftm/utility",
             "version": "0.1.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/Utility.git",
+                "reference": "973b7c1307bf657ebad90abb112977ef10143969"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../Utility",
-                "reference": "9863a18da8d1a174a96369054a17475fffe977d2"
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/973b7c1307bf657ebad90abb112977ef10143969",
+                "reference": "973b7c1307bf657ebad90abb112977ef10143969",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.0"
@@ -127,6 +160,7 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -137,9 +171,11 @@
                 }
             ],
             "description": "Some utility helpers for PHP.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/KsoftM/Utility/issues",
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.17"
+            },
+            "time": "2021-10-16T05:43:28+00:00"
         }
     ],
     "packages-dev": [],
