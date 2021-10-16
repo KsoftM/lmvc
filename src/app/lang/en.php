@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'welcome' => 'Welcome to the common world'
+    'welcome' => 'Welcome to the KsoftmM world'
 ];

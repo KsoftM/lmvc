@@ -3,8 +3,20 @@
 namespace ksoftm\app\http\models;
 
 use ksoftm\system\model\Model;
+use ksoftm\system\utils\validator\MegRule;
 
 class {className} extends Model
 {
-    
+    protected array $primaryKeys = [
+        // "id"
+    ];
+
+    protected array $uniqueKeys = [];
+
+    public function rules(): array
+    {
+        return [
+            // MegRule::new('id')->int()->unsigned()
+        ];
+    }
 }

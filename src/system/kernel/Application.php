@@ -86,13 +86,31 @@ class Application extends SingletonFactory
         // configure the rout files and language data
         View::config(root . '/resources/view', $lang);
 
-        // trigger display errors
-        if (Env::get('APP_DEBUG', false) == true) {
-            // error_reporting(-1);
-            ini_set('display_errors', 1);
-        } else {
-            ini_set('display_errors', 0);
+        //<<----------->> errors config <<----------->>//
+        switch (Env::get('APP_DEBUG', false)) {
+            case 'true':
+                // development version
+                error_reporting(-1);
+                ini_set('display_errors', 1);
+                break;
+
+            case 'false':
+                // production version
+                ini_set('display_errors', 0);
+                if (version_compare(PHP_VERSION, '5.3', '>=')) {
+                    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+                } else {
+                    error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+                }
+                break;
+
+            default:
+                exit(3);
+                break;
         }
+
+        //<<-----X----->> errors config <<-----X----->>//
+
 
         //TODO:  configure the app in hear
 

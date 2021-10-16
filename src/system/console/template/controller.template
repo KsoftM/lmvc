@@ -6,5 +6,7 @@ use ksoftm\system\controller\Controller;
 
 class {className} extends Controller
 {
-    
+    public function index() {
+
+    }
 }

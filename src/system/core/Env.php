@@ -28,4 +28,12 @@ class Env
     {
         return array_key_exists($name, $_ENV) ? $_ENV[$name] : $def;
     }
+
+    public static function isDebug(): bool
+    {
+        if (Env::get('APP_DEBUG', false) == 'false') {
+            return false;
+        }
+        return true;
+    }
 }
