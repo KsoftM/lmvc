@@ -2,10 +2,10 @@
 
 namespace ksoftm\app\http\models;
 
-use ksoftm\system\model\Model;
+use ksoftm\system\model\BaseModel;
 use ksoftm\system\utils\validator\MegRule;
 
-class {className} extends Model
+class {className} extends BaseModel
 {
     protected array $primaryKeys = [
         // "id"

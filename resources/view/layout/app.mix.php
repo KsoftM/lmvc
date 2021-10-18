@@ -8,10 +8,15 @@
     <title>
         <yield name="title" />
     </title>
+    <yield name="css" />
+    <link rel="stylesheet" href="./css/app.css">
 </head>
 
 <body>
     <yield name="content" />
+
+
+    <yield name="js" />
 </body>
 
 </html>

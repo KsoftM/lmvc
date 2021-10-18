@@ -32,7 +32,7 @@ MDQ::Config(
 
 Make::initPath([
     Make::FUNC_CONTROLLER =>  './src/app/http/controllers',
-    Make::FUNC_MODEL =>  './src/app/http/model',
+    Make::FUNC_MODEL =>  './src/app/http/models',
     Make::FUNC_MIGRATION =>  './migrations',
     Make::FUNC_MIDDLEWARE => './src/app/http/middleware',
     Make::FUNC_ENV_KEY => './.env',
