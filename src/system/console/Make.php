@@ -242,7 +242,7 @@ class Make
             }
         }
 
-        $path->write(implode(PHP_EOL, $lines));
+        $path->write(implode('', $lines));
         echo "Keys Generated successfully." . PHP_EOL;
     }
 
