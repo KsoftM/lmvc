@@ -8,7 +8,8 @@ use ksoftm\app\http\middleware\AuthMiddleware;
 use ksoftm\system\kernel\Route;
 
 Route::get('/', [HomeController::class, 'index'])
-    ->name('home')->middleware([new AuthMiddleware]);
+    ->name('home');
+
 
 Route::get('/login', [UserController::class, 'loginPage'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
@@ -16,4 +17,5 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/register', [UserController::class, 'registerPage'])->name('register');
 Route::get('/register', [UserController::class, 'register']);
 
-Route::get('/d/{name}/{hash}', [HomeController::class, 'download'])->name('download');
+Route::get('/d/{name}/{hash}', [HomeController::class, 'download'])
+    ->name('download')->middleware([new AuthMiddleware]);

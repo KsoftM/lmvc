@@ -174,7 +174,7 @@ class Make
             });
         } else {
             Schema::safeKeyCheck(function () use ($path) {
-                
+
                 ApplyMigration::applyMigration($path);
             });
         }

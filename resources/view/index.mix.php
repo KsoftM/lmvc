@@ -9,9 +9,15 @@
             <br>
         <p>
             <var name="url" />
+        <!--/p-->
         </p>
-        </p>
+        $d
+        $d
+        $this
+        $this->d
+        $_ENV
+        {{ var::url }}
 
-        <a href="var::url">DownloadPath</a>
+        <a href="{{ var::url }}">DownloadPath</a>
     </section>
 </extend>

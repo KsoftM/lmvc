@@ -14,26 +14,18 @@ class HomeController extends Controller
     public function index()
     {
         $key = Env::get('STORAGE_KEY');
-
         // get the name of the file
         $name = 'sample.txt';
-
         try {
             $name = EndeCorder::new($key)->encrypt($name);
         } catch (\Throwable $th) {
             if (Env::isDebug()) {
                 throw $th;
             }
-
             return Response::make()->centeredMessage('Encryption is failed!');
         }
-
-        $hash = EndeCorder::Token(
-            $name,
-            $key,
-            date_create('+1 day')->getTimestamp()
-        );
-
+        $time = date_create('+1 day')->getTimestamp();
+        $hash = EndeCorder::Token($name, $key, $time);
         $url = route('download', compact('hash', 'name'));
 
         return Response::make()->view('index', compact('url'));

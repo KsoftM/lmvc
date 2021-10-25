@@ -7,10 +7,10 @@
     "type": "project",
     "require": {
         "php": "^8.0",
-        "ksoftm/utility": "^0.1.21",
+        "ksoftm/utility": "^0.1.23",
         "ksoftm/mini-data": "^0.1.21",
-        "ksoftm/routing-system": "^0.1.21",
-        "ksoftm/mvc": "^0.1.21"
+        "ksoftm/routing-system": "^0.1.22",
+        "ksoftm/mvc": "^0.1.22"
     },
     "license": "MIT",
     "autoload": {
@@ -36,5 +36,5 @@
         ]
     },
     "minimum-stability": "stable",
-    "version": "0.1.21"
+    "version": "0.1.22"
 }
