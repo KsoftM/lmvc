@@ -114,7 +114,18 @@ class Application extends SingletonFactory
 
         //TODO:  configure the app in hear
 
-        request_dir(root . '/src/router');
+        $f = new FileManager(root . '/src/router');
+        if ($f->isExist()) {
+            $f = $f->getDirectoryFiles(true);
+            foreach ($f as $data) {
+                if (
+                    $data instanceof FileManager &&
+                    strtolower(pathinfo($data->getName(), PATHINFO_EXTENSION)) == 'php'
+                ) {
+                    $data->requireOnce();
+                }
+            }
+        }
     }
 
 
