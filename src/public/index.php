@@ -9,6 +9,5 @@ define('storage', root . "/storage");
 
 
 $app = Application::getInstance();
-$app->setRootPath(root);
 $app->config();
 $app->run();

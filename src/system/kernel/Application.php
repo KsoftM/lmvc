@@ -26,8 +26,6 @@ class Application extends SingletonFactory
         return self::$instance;
     }
 
-    /** @var string $rootPath root path of the application. */
-    protected ?string $rootPath = null;
     /**
      * Class constructor.
      */
@@ -36,29 +34,9 @@ class Application extends SingletonFactory
         //TODO: create instances of singletons in hear
     }
 
-    /**
-     * Get the value of rootPath
-     */
-    public function getRootPath()
-    {
-        return $this->rootPath;
-    }
-
-    /**
-     * Set the value of rootPath
-     *
-     * @return  self
-     */
-    public function setRootPath($rootPath)
-    {
-        $this->rootPath = $rootPath;
-
-        return $this;
-    }
-
     public function config()
     {
-        Env::load($this->getRootPath() . '/.env');
+        Env::load(root . '/.env');
 
         $dbConn = Config::get('database.data')[Config::get('database.connection')];
 
@@ -87,7 +65,7 @@ class Application extends SingletonFactory
         View::config(root . '/resources/view', $lang);
 
         //<<----------->> errors config <<----------->>//
-        switch (Env::get('APP_DEBUG', false)) {
+        switch (Env::get('APP_DEBUG', 'false')) {
             case 'true':
                 // development version
                 error_reporting(-1);

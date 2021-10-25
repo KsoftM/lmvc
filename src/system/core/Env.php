@@ -10,14 +10,15 @@ class Env
 {
     public static function load(string $path)
     {
+
         $f = new FileManager($path);
 
-        $data = explode(PHP_EOL, $f->read());
+        $data = $f->readLines();
 
-        foreach ($data as $key => $value) {
+        foreach ($data as $value) {
             if (!empty($value) && str_contains($value, '=')) {
                 $data = explode('=', $value, 2);
-                $_ENV[$data[0]] = $data[1];
+                $_ENV[trim($data[0])] = trim($data[1]);
             }
         }
 
