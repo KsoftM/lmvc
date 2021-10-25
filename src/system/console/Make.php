@@ -230,8 +230,9 @@ class Make
     {
         $path =  $root . self::$PATH[self::FUNC_ENV_KEY];
         $path = new FileManager($path);
+        $lines = $path->readLines();
 
-        foreach ($lines = explode(PHP_EOL, $path->read()) as $lineNo => $line) {
+        foreach ($lines as $lineNo => $line) {
             foreach ($keyNames as $value) {
                 if (str_contains(strtoupper($line), strtoupper($value))) {
                     $data = explode('=', $line, 2) + [null, null];

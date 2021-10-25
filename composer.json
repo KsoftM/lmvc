@@ -1,40 +1,41 @@
 {
-    "name": "ksoftm/lmvc",
-    "description": "lightweight framework for ati final year project.",
-    "keywords": [
-        "lightweight framework", "lmvc"
+  "name": "ksoftm/lmvc",
+  "description": "lightweight framework for ati final year project.",
+  "keywords": [
+    "lightweight framework",
+    "lmvc"
+  ],
+  "type": "project",
+  "require": {
+    "php": "^8.0",
+    "ksoftm/utility": "^0.1.23",
+    "ksoftm/mini-data": "^0.1.21",
+    "ksoftm/routing-system": "^0.1.22",
+    "ksoftm/mvc": "^0.1.22"
+  },
+  "license": "MIT",
+  "autoload": {
+    "files": [
+      "src/system/helper.php"
     ],
-    "type": "project",
-    "require": {
-        "php": "^8.0",
-        "ksoftm/utility": "^0.1.23",
-        "ksoftm/mini-data": "^0.1.21",
-        "ksoftm/routing-system": "^0.1.22",
-        "ksoftm/mvc": "^0.1.22"
-    },
-    "license": "MIT",
-    "autoload": {
-        "files": [
-            "src/system/helper.php"
-        ],
-        "psr-4": {
-            "ksoftm\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "KsoftM",
-            "email": "ksoftmanagement@gmail.com"
-        }
+    "psr-4": {
+      "ksoftm\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "KsoftM",
+      "email": "ksoftmanagement@gmail.com"
+    }
+  ],
+  "scripts": {
+    "post-create-project-cmd": [
+      "@php server new:key"
     ],
-    "scripts": {
-        "post-create-project-cmd": [
-            "@php server new:key"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
-    },
-    "minimum-stability": "stable",
-    "version": "0.1.22"
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "minimum-stability": "stable",
+  "version": "0.1.23"
 }
