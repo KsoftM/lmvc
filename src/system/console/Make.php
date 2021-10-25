@@ -27,6 +27,8 @@ class Make
     public const FUNC_ENV_KEY = 'new:key';
     public const FUNC_MIDDLEWARE = 'make:middleware';
 
+    public const FUNC_RUN = 'run';
+
     public const FUNC_SHORT = [
         self::FUNC_MIGRATION => '-a',
         self::FUNC_CONTROLLER => '-c',
@@ -93,7 +95,8 @@ class Make
             self::FUNC_MODEL,
             self::FUNC_ENV_KEY,
             self::FUNC_MIGRATE,
-            self::FUNC_MIDDLEWARE
+            self::FUNC_MIDDLEWARE,
+            self::FUNC_RUN,
         ])) {
             Log::BlogLog("Invalid argument function passed.");
             exit;
@@ -147,6 +150,10 @@ class Make
 
             if ($func == self::FUNC_ENV_KEY) {
                 self::generateKey($root, $envKeyNames);
+            }
+
+            if ($func == self::FUNC_RUN) {
+                self::runApp($root, $envKeyNames);
             }
 
             if (
@@ -264,5 +271,15 @@ class Make
     {
         return date_create()->format('Y_m_d_G_i_s_u') . self::SPECIAL_SEPARATOR .
             $migrationName . '_migration';
+    }
+
+    public static function runApp(): void
+    {
+        $cmd = [
+            'cd src/public/',
+            sprintf('php -S localhost:%d -F %s', 2121, 'src/public/')
+        ];
+
+        echo exec(implode(' && ', $cmd));
     }
 }
