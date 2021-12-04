@@ -9,7 +9,6 @@ use ksoftm\system\database\connection\MySQLDataDrive;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-
 define('root', __DIR__);
 
 $_ENV = Env::load('./.env');
@@ -31,15 +30,14 @@ MDQ::Config(
 
 
 Make::initPath([
-    Make::FUNC_CONTROLLER =>  './src/app/http/controllers',
-    Make::FUNC_MODEL =>  './src/app/http/models',
-    Make::FUNC_MIGRATION =>  './migrations',
-    Make::FUNC_MIDDLEWARE => './src/app/http/middleware',
-    Make::FUNC_ENV_KEY => './.env',
+    Make::FUNC_CONTROLLER =>  '/src/app/http/controllers',
+    Make::FUNC_MODEL =>  '/src/app/http/models',
+    Make::FUNC_MIGRATION =>  '/migrations',
+    Make::FUNC_MIDDLEWARE => '/src/app/http/middleware',
+    Make::FUNC_ENV_KEY => '/.env',
 ]);
 
-$args = $argv;
-array_shift($args);
+array_shift($argv);
 
-Make::process($args, root, ['APP_KEY', 'STORAGE_KEY']);
+Make::process($argv, root, ['APP_KEY', 'STORAGE_KEY']);
 exit;

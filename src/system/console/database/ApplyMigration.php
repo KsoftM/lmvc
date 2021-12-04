@@ -45,7 +45,6 @@ class ApplyMigration
                         if ($class instanceof Migration) {
                             $class->applyRoleBackMigration($fileName);
                         }
-                    } else {
                     }
                 }
             }

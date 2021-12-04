@@ -12,7 +12,7 @@ class MakeTemplateFile
         string $fileName,
         string $templatePath,
         array $replaces
-    ): bool {
+    ): bool|string {
         $file = new FileManager($path);
         foreach ($file->getDirectoryFiles(true) as $value) {
             if ($value instanceof FileManager) {
@@ -20,8 +20,7 @@ class MakeTemplateFile
                 $className = Make::getFileName($className);
 
                 if ($className == $name && $value->contains(" $className ")) {
-                    echo "$className, must be a unique name." . PHP_EOL . PHP_EOL;
-                    // exit;
+                    return "$className, must be a unique name." . PHP_EOL . PHP_EOL;
                 }
             }
         }
@@ -37,10 +36,9 @@ class MakeTemplateFile
             }
 
             if ($file->write($data, true)) {
-                echo "$className is created successfully." . PHP_EOL . PHP_EOL;
+                return "$className is created successfully." . PHP_EOL . PHP_EOL;
             } else {
-                echo "$className file is not created...!" . PHP_EOL . PHP_EOL;
-                exit;
+                return "$className file is not created...!" . PHP_EOL . PHP_EOL;
             }
         }
 

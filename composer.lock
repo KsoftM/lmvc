@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17147e09f99bdd5cee6d21918ab1a1ea",
+    "content-hash": "3344591f880adcbe07b6f33dea4aea8f",
     "packages": [
+        {
+            "name": "ksoftm/console",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/console.git",
+                "reference": "d91b96cfd9ab128e4b6a02aa18ab4f84616c9b60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/console/zipball/d91b96cfd9ab128e4b6a02aa18ab4f84616c9b60",
+                "reference": "d91b96cfd9ab128e4b6a02aa18ab4f84616c9b60",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ksoftm\\console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KsoftM",
+                    "email": "ksoftmanagement@gmail.com"
+                }
+            ],
+            "description": "command line interface for php in development.",
+            "support": {
+                "issues": "https://github.com/KsoftM/console/issues",
+                "source": "https://github.com/KsoftM/console/tree/v0.1.0"
+            },
+            "time": "2021-12-03T05:38:50+00:00"
+        },
         {
             "name": "ksoftm/mini-data",
             "version": "0.1.21",
@@ -139,16 +179,16 @@
         },
         {
             "name": "ksoftm/utility",
-            "version": "0.1.23",
+            "version": "0.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541"
+                "reference": "5c4300f8ac46d2a1adecb0d2ec7242c967d2fde7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
-                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/5c4300f8ac46d2a1adecb0d2ec7242c967d2fde7",
+                "reference": "5c4300f8ac46d2a1adecb0d2ec7242c967d2fde7",
                 "shasum": ""
             },
             "require": {
@@ -173,9 +213,9 @@
             "description": "Some utility helpers for PHP.",
             "support": {
                 "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.23"
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.24"
             },
-            "time": "2021-10-25T06:44:31+00:00"
+            "time": "2021-12-04T06:42:12+00:00"
         }
     ],
     "packages-dev": [],

@@ -9,7 +9,7 @@ class UserMigration extends Migration
 
     public function up(): void
     {
-        Schema::CreateIfNotExists('users', function (RawQuery $query) {
+        Schema::CreateIfNotExists('test', function (RawQuery $query) {
             $query->id();
             $query->string('firstName', 50);
             $query->string('lastName', 50);
@@ -18,7 +18,7 @@ class UserMigration extends Migration
             $query->string('password', 500);
             $query->year('batch');
             $query->boolean('active')->default(0);
-            $query->integer('roles_id')->primaryKey()->foreignKey('roles.id');
+            $query->integer('roles_id')->index();
 
             $query->timestamps();
         });
@@ -26,6 +26,6 @@ class UserMigration extends Migration
 
     public function down(): void
     {
-        Schema::DropIfExists('users');
+        Schema::DropIfExists('test');
     }
 }

@@ -8,10 +8,11 @@
   "type": "project",
   "require": {
     "php": "^8.0",
-    "ksoftm/utility": "^0.1.23",
+    "ksoftm/utility": "^0.1.24",
     "ksoftm/mini-data": "^0.1.21",
     "ksoftm/routing-system": "^0.1.23",
-    "ksoftm/mvc": "^0.1.23"
+    "ksoftm/mvc": "^0.1.23",
+    "ksoftm/console": "^0.1.0"
   },
   "license": "MIT",
   "autoload": {
@@ -37,5 +38,5 @@
     ]
   },
   "minimum-stability": "stable",
-  "version": "0.1.27"
+  "version": "0.1.28"
 }
