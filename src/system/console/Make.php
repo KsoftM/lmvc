@@ -137,9 +137,9 @@ class Make
 
         $makeModel->extras->register(
             Command::new(
-                self::FUNC_SHORT[self::FUNC_MODEL],
+                self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 'Make controller class template',
-                self::FUNC_SHORT[self::FUNC_MODEL],
+                self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 fn ($name) => self::controller($name, $root)
             )
         );
@@ -198,7 +198,7 @@ class Make
         $makeMigration->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MODEL],
-                'No Functions is available',
+                'Make model class template',
                 self::FUNC_SHORT[self::FUNC_MODEL],
                 fn ($name) => self::model($name, $root)
             )
@@ -206,9 +206,9 @@ class Make
 
         $makeMigration->extras->register(
             Command::new(
-                self::FUNC_SHORT[self::FUNC_MODEL],
+                self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 'Make controller class template',
-                self::FUNC_SHORT[self::FUNC_MODEL],
+                self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 fn ($name) => self::controller($name, $root)
             )
         );
