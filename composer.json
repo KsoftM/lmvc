@@ -8,7 +8,7 @@
   "type": "project",
   "require": {
     "php": "^8.0",
-    "ksoftm/utility": "^0.1.24",
+    "ksoftm/utility": "^0.1.26",
     "ksoftm/mini-data": "^0.1.21",
     "ksoftm/routing-system": "^0.1.23",
     "ksoftm/mvc": "^0.1.23",
@@ -38,5 +38,5 @@
     ]
   },
   "minimum-stability": "stable",
-  "version": "0.1.30"
+  "version": "0.1.31"
 }

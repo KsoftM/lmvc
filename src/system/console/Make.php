@@ -90,7 +90,7 @@ class Make
 
         $runApp = Command::new(
             self::FUNC_RUN,
-            'Run the server',
+            'Run the development server',
             self::FUNC_RUN,
             fn () => self::runApp()
         );
@@ -252,61 +252,81 @@ class Make
     {
         $path = $root . self::$PATH[self::FUNC_MIGRATION];
 
-        if ($applyRoleBack == true) {
-            Schema::safeKeyCheck(function () use ($path) {
-                ApplyMigration::applyRoleBackMigration($path);
-            });
-        } else {
-            Schema::safeKeyCheck(function () use ($path) {
-                ApplyMigration::applyMigration($path);
-            });
+        try {
+            if ($applyRoleBack == true) {
+                Schema::safeKeyCheck(function () use ($path) {
+                    ApplyMigration::applyRoleBackMigration($path);
+                });
+            } else {
+                Schema::safeKeyCheck(function () use ($path) {
+                    ApplyMigration::applyMigration($path);
+                });
+            }
+        } catch (\Throwable $th) {
+            echo 'Some error in the database connection.';
         }
     }
 
     public static function migration(string|false $migrationName, string|false $root): bool|string
     {
-        $path = $root . self::$PATH[self::FUNC_MIGRATION];
-        $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MIGRATION];
+        if (self::IsValidName($migrationName)) {
+            $path = $root . self::$PATH[self::FUNC_MIGRATION];
+            $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MIGRATION];
 
-        $className = self::generateClassName($migrationName . '_migration');
-        $uniqueFileName = self::createUniqueFileName($migrationName);
+            $className = self::generateClassName($migrationName . '_migration');
+            $uniqueFileName = self::createUniqueFileName($migrationName);
 
-        return MakeTemplateFile::create($path, $className, $uniqueFileName, $templatePath, [
-            '{className}' => $className
-        ]);
+            return MakeTemplateFile::create($path, $className, $uniqueFileName, $templatePath, [
+                '{className}' => $className
+            ]);
+        } else {
+            return 'The name is invalid';
+        }
     }
 
     public static function controller(string|false $controllerName, string|false $root): bool|string
     {
-        $path = $root . self::$PATH[self::FUNC_CONTROLLER];
-        $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_CONTROLLER];
-        $className = self::generateClassName($controllerName . '_controller');
+        if (self::IsValidName($controllerName)) {
+            $path = $root . self::$PATH[self::FUNC_CONTROLLER];
+            $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_CONTROLLER];
+            $className = self::generateClassName($controllerName . '_controller');
 
-        return MakeTemplateFile::create($path, $className, $className, $templatePath, [
-            '{className}' => $className
-        ]);
+            return MakeTemplateFile::create($path, $className, $className, $templatePath, [
+                '{className}' => $className
+            ]);
+        } else {
+            return 'The name is invalid';
+        }
     }
 
     public static function model(string|false $modelName, string|false $root): bool|string
     {
-        $path =  $root . self::$PATH[self::FUNC_MODEL];
-        $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MODEL];
-        $className = self::generateClassName($modelName . "_model");
+        if (self::IsValidName($modelName)) {
+            $path =  $root . self::$PATH[self::FUNC_MODEL];
+            $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MODEL];
+            $className = self::generateClassName($modelName . "_model");
 
-        return MakeTemplateFile::create($path, $className, $className, $templatePath, [
-            '{className}' => $className
-        ]);
+            return MakeTemplateFile::create($path, $className, $className, $templatePath, [
+                '{className}' => $className
+            ]);
+        } else {
+            return 'The name is invalid';
+        }
     }
 
     public static function middleware(string|false $middlewareName, string|false $root): bool|string
     {
-        $path =  $root . self::$PATH[self::FUNC_MIDDLEWARE];
-        $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MIDDLEWARE];
-        $className = self::generateClassName($middlewareName . "_middleware");
+        if (self::IsValidName($middlewareName)) {
+            $path =  $root . self::$PATH[self::FUNC_MIDDLEWARE];
+            $templatePath = __DIR__ . self::$TEMPLATE[self::FUNC_MIDDLEWARE];
+            $className = self::generateClassName($middlewareName . "_middleware");
 
-        return MakeTemplateFile::create($path, $className, $className, $templatePath, [
-            '{className}' => $className
-        ]);
+            return MakeTemplateFile::create($path, $className, $className, $templatePath, [
+                '{className}' => $className
+            ]);
+        } else {
+            return 'The name is invalid';
+        }
     }
 
     public static function generateKey(string|false $root, array $keyNames): bool|string
