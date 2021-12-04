@@ -12,7 +12,7 @@
     "ksoftm/mini-data": "^0.1.21",
     "ksoftm/routing-system": "^0.1.23",
     "ksoftm/mvc": "^0.1.23",
-    "ksoftm/console": "^0.1.0"
+    "ksoftm/console": "^0.1.1"
   },
   "license": "MIT",
   "autoload": {
@@ -38,5 +38,5 @@
     ]
   },
   "minimum-stability": "stable",
-  "version": "0.1.29"
+  "version": "0.1.30"
 }
