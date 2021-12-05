@@ -15,7 +15,9 @@ Route::get('/login', [UserController::class, 'loginPage'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/register', [UserController::class, 'registerPage'])->name('register');
-Route::get('/register', [UserController::class, 'register']);
+Route::post('/register', [UserController::class, 'register']);
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/d/{name}/{hash}', [HomeController::class, 'download'])
     ->name('download')->middleware([new AuthMiddleware]);

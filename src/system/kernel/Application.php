@@ -11,6 +11,8 @@ use ksoftm\system\controller\Controller;
 use ksoftm\system\utils\SingletonFactory;
 use ksoftm\system\middleware\MiddlewareStake;
 use ksoftm\app\http\middleware\LangMiddleware;
+use ksoftm\app\http\middleware\PasswordHashMiddleware;
+use ksoftm\app\http\middleware\VerifyTokenMiddleware;
 use ksoftm\system\database\connection\MySQLDataDrive;
 use ksoftm\system\utils\io\FileManager;
 use ksoftm\system\utils\View;
@@ -111,6 +113,8 @@ class Application extends SingletonFactory
     {
         MiddlewareStake::getInstance()
             ->add([new LangMiddleware()])
+            ->add([new PasswordHashMiddleware()])
+            ->add([new VerifyTokenMiddleware()])
             ->handle(Request::getInstance());
 
 

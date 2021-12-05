@@ -7,11 +7,16 @@ use ksoftm\system\utils\validator\MegRule;
 
 class {className} extends BaseModel
 {
+    // primaryKeys of the model fields
     protected array $primaryKeys = [
         // "id"
     ];
 
+    // uniqueKeys of the model fields
     protected array $uniqueKeys = [];
+
+    // hidden fields for the selection
+    protected array $hidden = [];
 
     public function rules(): array
     {

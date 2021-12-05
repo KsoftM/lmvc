@@ -6,15 +6,11 @@ use ksoftm\app\http\models\UserModel;
 use ksoftm\system\controller\Controller;
 use ksoftm\system\core\auth\Auth;
 use ksoftm\system\core\Env;
-use ksoftm\system\database\Query;
-use ksoftm\system\database\RawQuery;
-use ksoftm\system\DB;
+use ksoftm\system\internal\DResult;
 use ksoftm\system\kernel\Redirect;
 use ksoftm\system\kernel\Request;
 use ksoftm\system\kernel\Response;
 use ksoftm\system\kernel\Route;
-use ksoftm\system\model\BaseModel;
-use ksoftm\system\Schema;
 use ksoftm\system\utils\EndeCorder;
 use ksoftm\system\utils\Session;
 
@@ -22,21 +18,33 @@ class UserController extends Controller
 {
     public function loginPage()
     {
-        return Response::make()->view('auth.login');
+        $time = date_create('+20 minute')->getTimestamp();
+        $token = EndeCorder::Token('form_token', Env::get('APP_KEY'), $time);
+
+        return Response::make()->view('auth.login', compact('token'));
     }
 
     public function registerPage()
     {
-        return Response::make()->view('auth.register');
+        $time = date_create('+20 minute')->getTimestamp();
+        $token = EndeCorder::Token('form_token', Env::get('APP_KEY'), $time);
+
+        return Response::make()->view('auth.register', compact('token'));
+    }
+
+    public function logout()
+    {
+        Auth::logoutTrigger();
+        Redirect::next('home');
     }
 
     public function login(Request $request)
     {
-        if (empty($request->username) || empty($request->password)) {
-            Session::new()->flash('message', 'Successfully logged in!');
+        if (is_null($request->username) || is_null($request->password)) {
+            Session::new()->flash('message', 'Login was failed!');
         } else {
             if (Auth::verify($request->username, $request->password)) {
-                Session::new()->flash('message', 'Successfully logged in!');
+                // Session::new()->flash('message', 'Successfully logged in!');
                 Redirect::next('home');
             } else {
                 Session::new()->flash('message', 'Login was Failed!');
@@ -47,26 +55,31 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        $model = new UserModel;
+        $user = new UserModel;
         $data = $request->getMethodData(Route::POST_METHOD);
 
-        $data['password'] = EndeCorder::HashedPassword($data['password']);
+        // $data['password'] = EndeCorder::HashedPassword($data['password']);
 
         foreach ($data  as $key => $value) {
-            $model->$key = $value;
+            $user->$key = $value;
         }
 
-        if ($model->isValid()) {
-            if ($model->insert() == false) {
-                Session::new()->flash('message', 'Registration was Failed!');
-                Redirect::next('home');
-            } else {
+        if ($user->isValid()) {
+            if (($res = $user->insert()) != false &&
+                ($res instanceof DResult && $res->rowCount() == 1)
+            ) {
                 Session::new()->flash('message', 'Registered Successfully!');
+                // Redirect::next('home');
+                Redirect::next('register');
+            } else {
+                Session::new()->flash('message', 'Registration was Failed!');
                 Redirect::next('register');
             }
         } else {
-            $valid = $model->getErrors();
-            Session::new()->flash('message', $valid[0]);
+            $valid = $user->getErrors();
+
+            Session::new()->flash('message', array_shift($valid));
+            Redirect::next('register');
         }
     }
 }

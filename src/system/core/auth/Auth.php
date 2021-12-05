@@ -33,7 +33,7 @@ class Auth
     ): bool {
         $model = new UserModel;
         $model->findAndLoad($identifier);
-        $status = $model->$activeFieldName;
+        $status = $model->$activeFieldName == '1' ? true : false;
 
         if (
             EndeCorder::VerifyHashedPassword($password, $model->$passwordFieldName) &&
@@ -63,9 +63,9 @@ class Auth
     {
         if (!empty($token = Cookie::make(self::getName())->get())) {
 
+            $token = EndeCorder::new(Env::get('APP_KEY'))->decrypt($token);
             $token = base64_decode($token);
-
-            $token = json_decode($token);
+            $token = (array) json_decode($token);
 
             try {
                 if (EndeCorder::TokenValidate(

@@ -38,7 +38,7 @@ class HomeController extends Controller
         $hash = $request->userRouterData()['hash'];
 
         try {
-            $token = EndeCorder::new($key)->TokenValidate($name, $hash, $key);
+            $token = EndeCorder::TokenValidate($name, $hash, $key);
 
             if ($token->isValid()) {
                 $name = EndeCorder::new($key)->decrypt($name);
