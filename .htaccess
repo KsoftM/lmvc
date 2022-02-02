@@ -1,5 +1,29 @@
 ## Apache 2.2
-Deny from all
+# Deny from all
 
 ## Apache 2.4
 # Require all denied
+
+
+#<<----------->> denide the access to some files <<----------->>#
+
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp|env|example)|server|composer.(lock|json)|license|~)$">
+    ## Apache 2.2
+    Order allow,deny
+    Deny from all
+    Satisfy All
+
+    ## Apache 2.4
+    Require all denied
+</FilesMatch>
+
+#<<-----X----->> denide the access to some files <<-----X----->>#
+
+
+#<<----------->> denide the access to hidden files <<----------->>#
+
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+
+#<<-----X----->> denide the access to hidden files <<-----X----->>#
