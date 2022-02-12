@@ -9,15 +9,20 @@
             <br>
         <p>
             <var name="url" />
-        <!--/p-->
+            <!--/p-->
         </p>
-        $d
-        $d
-        $this
-        $this->d
-        $_ENV
         {{ var::url }}
 
         <a href="{{ var::url }}">DownloadPath</a>
+        <br>
+        <br>
+        <form action="{{var::lang}}" method="post">
+            <select name="lang">
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
+            </select>
+
+            <input type="submit" value="Change Language">
+        </form>
     </section>
 </extend>

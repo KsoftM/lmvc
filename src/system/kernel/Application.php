@@ -4,6 +4,7 @@ namespace ksoftm\system\kernel;
 
 require_once root . '/vendor/autoload.php';
 
+use ksoftm\app\http\middleware\AuthMiddleware;
 use ksoftm\system\MDQ;
 use ksoftm\system\core\Env;
 use ksoftm\system\core\Config;
@@ -59,7 +60,7 @@ class Application extends SingletonFactory
 
         foreach ($f->getDirectoryFiles() as $value) {
             if ($value instanceof FileManager) {
-                $lang[$value->getNameOnly()] = $value->includeOnce();
+                $lang[$value->getNameOnly()] = $value->requireOnce();
             }
         }
 
@@ -113,7 +114,7 @@ class Application extends SingletonFactory
     {
         MiddlewareStake::getInstance()
             ->add([new LangMiddleware()])
-            ->add([new PasswordHashMiddleware()])
+            // ->add([new PasswordHashMiddleware()])
             ->add([new VerifyTokenMiddleware()])
             ->handle(Request::getInstance());
 

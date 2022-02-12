@@ -15,11 +15,8 @@ class LangMiddleware implements MiddlewareFactory
     public function handle(Request $request, Closure $next): mixed
     {
 
-        if ($request->exists('lang')) {
-            $cookie = Cookie::make('lang');
-            $request->lang = $cookie->get();
-        } else {
-            $cookie = Cookie::make(
+        if (!$request->exists('lang')) {
+            Cookie::make(
                 'lang',
                 'en',
                 date_create('+1 year')->getTimestamp()

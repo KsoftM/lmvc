@@ -13,9 +13,9 @@ class UserMigration extends Migration
             $query->id();
             $query->string('firstName', 50);
             $query->string('lastName', 50);
-            $query->string('username', 50)->nullable()->unique();
+            $query->string('username', 50)->unique();
             $query->string('email', 300)->unique();
-            $query->string('password', 500);
+            $query->longText('password');
             $query->boolean('active')->nullable()->default('1');
 
             $query->timestamps();

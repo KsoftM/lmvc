@@ -21,7 +21,7 @@ class Auth
     /**
      * $identifier maybe contain username or email address password
      *
-     * @param array $identifier
+     * @param string $identifier
      *
      * @return bool
      */

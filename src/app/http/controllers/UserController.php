@@ -10,7 +10,6 @@ use ksoftm\system\internal\DResult;
 use ksoftm\system\kernel\Redirect;
 use ksoftm\system\kernel\Request;
 use ksoftm\system\kernel\Response;
-use ksoftm\system\kernel\Route;
 use ksoftm\system\utils\EndeCorder;
 use ksoftm\system\utils\Session;
 
@@ -29,7 +28,13 @@ class UserController extends Controller
         $time = date_create('+20 minute')->getTimestamp();
         $token = EndeCorder::Token('form_token', Env::get('APP_KEY'), $time);
 
-        return Response::make()->view('auth.register', compact('token'));
+        $r_fn = bin2hex(random_bytes(random_int(3, 5)));
+        $r_ln = bin2hex(random_bytes(random_int(3, 5)));
+        $r_un = 'un_' . bin2hex(random_bytes(random_int(3, 6)));
+        $r_ps = bin2hex(random_bytes(random_int(3, 10)));
+        $r_em = sprintf("%s@gmail.com", bin2hex(random_bytes(random_int(3, 5))));
+
+        return Response::make()->view('auth.register', compact('token', 'r_fn', 'r_ln', 'r_un', 'r_ps', 'r_em'));
     }
 
     public function logout()
@@ -40,10 +45,10 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        if (is_null($request->username) || is_null($request->password)) {
+        if (!$request->exists('username') && !$request->exists('password')) {
             Session::new()->flash('message', 'Login was failed!');
         } else {
-            if (Auth::verify($request->username, $request->password)) {
+            if (Auth::verify($request->post->username, $request->post->password)) {
                 // Session::new()->flash('message', 'Successfully logged in!');
                 Redirect::next('home');
             } else {
@@ -56,13 +61,10 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $user = new UserModel;
-        $data = $request->getMethodData(Route::POST_METHOD);
 
         // $data['password'] = EndeCorder::HashedPassword($data['password']);
 
-        foreach ($data  as $key => $value) {
-            $user->$key = $value;
-        }
+        $request->post->getEach(fn ($k, $v) => $user->$k = $v);
 
         if ($user->isValid()) {
             if (($res = $user->insert()) != false &&

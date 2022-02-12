@@ -12,8 +12,17 @@ class PasswordHashMiddleware implements MiddlewareFactory
 {
     public function handle(Request $request, Closure $next): mixed
     {
-        if (isset($_POST['password']) && Route::currentRoutCheck('login') == false) {
-            $_POST['password'] = EndeCorder::HashedPassword($_POST['password']);
+        // if (isset($_POST['password']) && Route::currentRoutCheck('login') == false) {
+        //     $_POST['password'] = EndeCorder::HashedPassword($_POST['password']);
+        // }
+
+        // if ($request->exists('password') && Route::currentRoutCheck('login') == false) {
+        //     $request->post->password = EndeCorder::HashedPassword($request->post->password);
+        // }
+
+        if ($request->exists('password')) {
+            $request->post->password = EndeCorder::HashedPassword($request->post->password);
+            $request->loadData();
         }
 
         // if (isset($_GET['password'])) {

@@ -15,10 +15,10 @@ class VerifyTokenMiddleware implements MiddlewareFactory
     public function handle(Request $request, Closure $next): mixed
     {
         if ($request->isPostMethod()) {
-            if ($request->exists('form_token')) {
+            if ($request->post->haveKey('form_token')) {
                 $key = EndeCorder::TokenValidate(
                     'form_token',
-                    $request->form_token,
+                    $request->post->form_token,
                     Env::get('APP_KEY')
                 );
                 if ($key->isValid() == false) {
