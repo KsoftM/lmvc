@@ -19,6 +19,8 @@
         <form action="{{var::lang}}" method="post">
             <select name="lang">
                 <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="ko">Korean</option>
                 <option value="ta">Tamil</option>
             </select>
 

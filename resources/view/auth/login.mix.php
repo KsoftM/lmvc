@@ -3,7 +3,9 @@
     <section name="content">
         <div class="center">
             <form action="" method="post">
-                <h1>Login</h1>
+                <h1>
+                    <lang src="login" />
+                </h1>
                 <br>
                 <?php if (\ksoftm\system\utils\Session::new()->haveKey('message')) : ?>
                     <?php echo ksoftm\system\utils\Session::new()->getOnceByKey('message') ?>
