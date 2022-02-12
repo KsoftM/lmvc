@@ -37,28 +37,6 @@
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ]
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../../ati_project/console"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/MiniData"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/mvc"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/RoutingSystem"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/Utility"
-    }
-  ],
   "minimum-stability": "dev",
-  "version": "0.1.32"
+  "version": "0.1.4"
 }
