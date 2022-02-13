@@ -10,7 +10,7 @@
     "php": "^8.0",
     "ksoftm/utility": "^0.1.28",
     "ksoftm/mini-data": "^0.1.23",
-    "ksoftm/routing-system": "^0.1.26",
+    "ksoftm/routing-system": "^0.1.27",
     "ksoftm/mvc": "^0.1.25",
     "ksoftm/console": "^0.1.1"
   },
@@ -36,28 +36,7 @@
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ]
-  },"repositories": [
-    {
-      "type": "path",
-      "url": "../../ati_project/console"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/MiniData"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/mvc"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/RoutingSystem"
-    },
-    {
-      "type": "path",
-      "url": "../../ati_project/Utility"
-    }
-  ],
+  },
   "minimum-stability": "dev",
-  "version": "0.1.51"
+  "version": "0.1.52"
 }
