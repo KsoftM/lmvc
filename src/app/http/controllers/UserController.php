@@ -45,10 +45,6 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        echo '<pre>';
-        var_dump($request->exists('post.username'), $request->exists('post.password'));
-        echo '</pre>';
-        exit;
         if (!$request->exists('post.username') && !$request->exists('post.password')) {
             Session::new()->flash('message', 'Login fields are empty!');
         } else {
