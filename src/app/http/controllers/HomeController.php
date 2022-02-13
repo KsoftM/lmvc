@@ -30,9 +30,9 @@ class HomeController extends Controller
         $time = date_create('+1 day')->getTimestamp();
         $hash = EndeCorder::Token($name, $key, $time);
         $url = route('download', compact('hash', 'name'));
-        $lang = route('lang');
+        $lng = route('lang');
 
-        return Response::make()->view('index', compact('url', 'lang'));
+        return Response::make()->view('index', compact('url', 'lng'));
     }
 
     public function download(Request $request)
@@ -61,7 +61,7 @@ class HomeController extends Controller
 
     public function lang(Request $request): void
     {
-        if (!$request->exists('lang')) return;
+        if (!$request->exists('cookie.lang')) return;
 
         Cookie::make(
             'lang',

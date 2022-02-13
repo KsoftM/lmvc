@@ -4,21 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28b37ff9aa76df631bcf140d07daac10",
+    "content-hash": "82699ea89b63e6457b5e932b9fd84ef8",
     "packages": [
         {
             "name": "ksoftm/console",
             "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KsoftM/console.git",
-                "reference": "8f3372e07a06355272bcc249c2e72de705775299"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/console/zipball/8f3372e07a06355272bcc249c2e72de705775299",
-                "reference": "8f3372e07a06355272bcc249c2e72de705775299",
-                "shasum": ""
+                "type": "path",
+                "url": "../../ati_project/console",
+                "reference": "472023e58a2a76e38d91184485c0c68c504af0d0"
             },
             "require": {
                 "php": "^8.0"
@@ -29,7 +23,11 @@
                     "ksoftm\\console\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "ksoftm\\console\\test\\": "test/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -40,25 +38,17 @@
                 }
             ],
             "description": "command line interface for php in development.",
-            "support": {
-                "issues": "https://github.com/KsoftM/console/issues",
-                "source": "https://github.com/KsoftM/console/tree/v0.1.1"
-            },
-            "time": "2021-12-03T14:24:35+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ksoftm/mini-data",
             "version": "0.1.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KsoftM/MiniData.git",
-                "reference": "eea147eed92f0a46fd277e4e2b2a655f925bcf95"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/MiniData/zipball/eea147eed92f0a46fd277e4e2b2a655f925bcf95",
-                "reference": "eea147eed92f0a46fd277e4e2b2a655f925bcf95",
-                "shasum": ""
+                "type": "path",
+                "url": "../../ati_project/MiniData",
+                "reference": "eea147eed92f0a46fd277e4e2b2a655f925bcf95"
             },
             "require": {
                 "ksoftm/utility": "^0.1.28",
@@ -70,7 +60,6 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -81,25 +70,17 @@
                 }
             ],
             "description": "content database easily",
-            "support": {
-                "issues": "https://github.com/KsoftM/MiniData/issues",
-                "source": "https://github.com/KsoftM/MiniData/tree/v0.1.23"
-            },
-            "time": "2022-02-12T17:27:20+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ksoftm/mvc",
             "version": "0.1.25",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KsoftM/mvc.git",
-                "reference": "9eca5f36539303b7973f0189929f3729935d869b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/mvc/zipball/9eca5f36539303b7973f0189929f3729935d869b",
-                "reference": "9eca5f36539303b7973f0189929f3729935d869b",
-                "shasum": ""
+                "type": "path",
+                "url": "../../ati_project/mvc",
+                "reference": "9eca5f36539303b7973f0189929f3729935d869b"
             },
             "require": {
                 "ksoftm/mini-data": "^0.1.23",
@@ -116,7 +97,6 @@
                     "ksoftm\\system\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -127,25 +107,17 @@
                 }
             ],
             "description": "Basic mvc implementation.",
-            "support": {
-                "issues": "https://github.com/KsoftM/mvc/issues",
-                "source": "https://github.com/KsoftM/mvc/tree/v0.1.25"
-            },
-            "time": "2022-02-12T17:29:08+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ksoftm/routing-system",
             "version": "0.1.26",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KsoftM/RoutingSystem.git",
-                "reference": "33b6119343c820d17251d3ac53589a5e0979b1b6"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/33b6119343c820d17251d3ac53589a5e0979b1b6",
-                "reference": "33b6119343c820d17251d3ac53589a5e0979b1b6",
-                "shasum": ""
+                "type": "path",
+                "url": "../../ati_project/RoutingSystem",
+                "reference": "33b6119343c820d17251d3ac53589a5e0979b1b6"
             },
             "require": {
                 "ksoftm/utility": "^0.1.28",
@@ -160,7 +132,6 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -171,25 +142,17 @@
                 }
             ],
             "description": "Routing system for PHP projects.",
-            "support": {
-                "issues": "https://github.com/KsoftM/RoutingSystem/issues",
-                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.26"
-            },
-            "time": "2022-02-12T17:16:30+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "ksoftm/utility",
             "version": "0.1.28",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "2c17c96d57b4917423eef65089efd171080bee6a"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/2c17c96d57b4917423eef65089efd171080bee6a",
-                "reference": "2c17c96d57b4917423eef65089efd171080bee6a",
-                "shasum": ""
+                "type": "path",
+                "url": "../../ati_project/Utility",
+                "reference": "2c17c96d57b4917423eef65089efd171080bee6a"
             },
             "require": {
                 "php": "^8.0"
@@ -200,7 +163,6 @@
                     "ksoftm\\system\\": "./src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -211,11 +173,9 @@
                 }
             ],
             "description": "Some utility helpers for PHP.",
-            "support": {
-                "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.28"
-            },
-            "time": "2022-02-12T17:08:40+00:00"
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [],

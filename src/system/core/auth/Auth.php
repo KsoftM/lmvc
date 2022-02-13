@@ -32,9 +32,12 @@ class Auth
         string $activeFieldName = 'active'
     ): bool {
         $model = new UserModel;
-        $model->findAndLoad($identifier);
-        $status = $model->$activeFieldName == '1' ? true : false;
+        $notFound = $model->findAndLoad($identifier);
 
+        if (!$notFound) return false;
+
+        $status = $model->$activeFieldName == '1' ? true : false;
+        
         if (
             EndeCorder::VerifyHashedPassword($password, $model->$passwordFieldName) &&
             is_bool($status) && $status == true

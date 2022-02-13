@@ -20,7 +20,7 @@ class PasswordHashMiddleware implements MiddlewareFactory
         //     $request->post->password = EndeCorder::HashedPassword($request->post->password);
         // }
 
-        if ($request->exists('password')) {
+        if ($request->exists('post.password')) {
             $request->post->password = EndeCorder::HashedPassword($request->post->password);
             $request->loadData();
         }
