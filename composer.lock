@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f44f83ffce42f02b2e236ad10e3e857",
+    "content-hash": "5519a0b88aec8acdac2c8a2484c3ec76",
     "packages": [
         {
             "name": "ksoftm/console",
-            "version": "0.1.1",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/console.git",
-                "reference": "8f3372e07a06355272bcc249c2e72de705775299"
+                "reference": "77ee469e1102ceccc316d2f667ba8594c4dfcf32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/console/zipball/8f3372e07a06355272bcc249c2e72de705775299",
-                "reference": "8f3372e07a06355272bcc249c2e72de705775299",
+                "url": "https://api.github.com/repos/KsoftM/console/zipball/77ee469e1102ceccc316d2f667ba8594c4dfcf32",
+                "reference": "77ee469e1102ceccc316d2f667ba8594c4dfcf32",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "ksoftm\\console\\": "src/"
+                    "KsoftM\\Console\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -42,9 +42,9 @@
             "description": "command line interface for php in development.",
             "support": {
                 "issues": "https://github.com/KsoftM/console/issues",
-                "source": "https://github.com/KsoftM/console/tree/v0.1.1"
+                "source": "https://github.com/KsoftM/console/tree/v0.2.1"
             },
-            "time": "2021-12-03T14:24:35+00:00"
+            "time": "2022-02-19T15:34:39+00:00"
         },
         {
             "name": "ksoftm/mini-data",

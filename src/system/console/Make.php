@@ -3,17 +3,18 @@
 namespace ksoftm\system\console;
 
 use ksoftm\system\Schema;
-use ksoftm\system\console\Log;
-use ksoftm\console\core\Command;
+use KsoftM\Console\Command;
+use ksoftm\system\core\Env;
+use KsoftM\Console\CommandExtra;
+use KsoftM\Console\CommandFactory;
 use ksoftm\system\utils\EndeCorder;
-use ksoftm\console\core\CommandExtra;
-use ksoftm\console\core\CommandFactory;
 use ksoftm\system\utils\io\FileManager;
 use ksoftm\system\utils\validator\MegRule;
 use ksoftm\system\console\MakeTemplateFile;
 use ksoftm\system\utils\validator\MegaValid;
 use ksoftm\system\console\database\ApplyMigration;
-use ksoftm\system\core\Env;
+
+
 
 require_once './vendor/autoload.php';
 
@@ -90,6 +91,7 @@ class Make
 
         $runApp = Command::new(
             self::FUNC_RUN,
+            'Run',
             'Run the development server',
             self::FUNC_RUN,
             fn () => self::runApp()
@@ -97,6 +99,7 @@ class Make
 
         $newKey = Command::new(
             self::FUNC_ENV_KEY,
+            'Generate Key',
             'Generate new keyset for the application',
             self::FUNC_ENV_KEY,
             fn () => self::generateKey($root, $envKeyNames)
@@ -106,6 +109,7 @@ class Make
 
         $migrate = CommandExtra::new(
             self::FUNC_MIGRATE,
+            'Migration',
             'Apply the migrations',
             self::FUNC_MIGRATE,
             function ($d) use ($root) {
@@ -118,6 +122,7 @@ class Make
         $migrate->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MIGRATE],
+                'Migration',
                 'Apply the rollback migrations',
                 self::FUNC_SHORT[self::FUNC_MIGRATE],
                 fn () => self::migrate($root, true)
@@ -130,6 +135,7 @@ class Make
 
         $makeModel = CommandExtra::new(
             self::FUNC_MODEL,
+            'Make Model',
             "Make model class template",
             'make:model [name] [options]',
             fn ($name) => self::model($name, $root)
@@ -138,6 +144,7 @@ class Make
         $makeModel->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_CONTROLLER],
+                'Make Controller',
                 'Make controller class template',
                 self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 fn ($name) => self::controller($name, $root)
@@ -147,6 +154,7 @@ class Make
         $makeModel->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MIGRATION],
+                'Make Migration',
                 'Make migration class template',
                 self::FUNC_SHORT[self::FUNC_MIGRATION],
                 fn ($name) => self::migration($name, $root)
@@ -160,6 +168,7 @@ class Make
 
         $makeController = CommandExtra::new(
             self::FUNC_CONTROLLER,
+            'Make Controller',
             "Make controller class template",
             "make:controller [name] [options]",
             fn ($name) => self::controller($name, $root)
@@ -168,6 +177,7 @@ class Make
         $makeController->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MODEL],
+                'Make Model',
                 'Make model class template',
                 self::FUNC_SHORT[self::FUNC_MODEL],
                 fn ($name) => self::model($name, $root)
@@ -177,6 +187,7 @@ class Make
         $makeController->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MIGRATION],
+                'Make Migration',
                 'Make migration class template',
                 self::FUNC_SHORT[self::FUNC_MIGRATION],
                 fn ($name) => self::migration($name, $root)
@@ -190,6 +201,7 @@ class Make
 
         $makeMigration = CommandExtra::new(
             self::FUNC_MIGRATION,
+            'Make Migration',
             "Make migration class template",
             "make:migration [name] [options]",
             fn ($name) => self::migration($name, $root)
@@ -198,6 +210,7 @@ class Make
         $makeMigration->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_MODEL],
+                'Make Model',
                 'Make model class template',
                 self::FUNC_SHORT[self::FUNC_MODEL],
                 fn ($name) => self::model($name, $root)
@@ -207,6 +220,7 @@ class Make
         $makeMigration->extras->register(
             Command::new(
                 self::FUNC_SHORT[self::FUNC_CONTROLLER],
+                'Make Migration',
                 'Make controller class template',
                 self::FUNC_SHORT[self::FUNC_CONTROLLER],
                 fn ($name) => self::controller($name, $root)
@@ -220,8 +234,9 @@ class Make
 
         $makeMiddleware = Command::new(
             self::FUNC_MIDDLEWARE,
+            'Make Middleware',
             "Make middleware class template",
-            "make:middleware [name] [options]",
+            "make:middleware [name]",
             fn ($name) => self::middleware($name, $root)
         );
 
@@ -340,7 +355,7 @@ class Make
                 if (str_contains(strtoupper($line), strtoupper($value))) {
                     $data = explode('=', $line, 2) + [null, null];
                     $data[1] = EndeCorder::generateUniqueKey();
-                    $lines[$lineNo] = implode('=', $data);
+                    $lines[$lineNo] = implode('=', $data) . PHP_EOL;
                 }
             }
         }

@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        if (!$request->exists('post.username') && !$request->exists('post.password')) {
+        if (!$request->exists('post.username') || !$request->exists('post.password')) {
             Session::new()->flash('message', 'Login fields are empty!');
         } else {
             if (Auth::verify($request->post->username, $request->post->password)) {
