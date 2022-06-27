@@ -179,16 +179,16 @@
         },
         {
             "name": "ksoftm/utility",
-            "version": "0.1.28",
+            "version": "0.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "2c17c96d57b4917423eef65089efd171080bee6a"
+                "reference": "d148600950836079cfbdf542cc906e0dbe4082d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/2c17c96d57b4917423eef65089efd171080bee6a",
-                "reference": "2c17c96d57b4917423eef65089efd171080bee6a",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/d148600950836079cfbdf542cc906e0dbe4082d3",
+                "reference": "d148600950836079cfbdf542cc906e0dbe4082d3",
                 "shasum": ""
             },
             "require": {
@@ -213,9 +213,9 @@
             "description": "Some utility helpers for PHP.",
             "support": {
                 "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.28"
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.29"
             },
-            "time": "2022-02-12T17:08:40+00:00"
+            "time": "2022-06-27T07:15:08+00:00"
         }
     ],
     "packages-dev": [],
