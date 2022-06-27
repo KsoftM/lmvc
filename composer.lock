@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94029fa9ee11365f87276e007d77a48e",
+    "content-hash": "9677d194da2ceaeed4acb11affc7b07e",
     "packages": [
         {
             "name": "ksoftm/console",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/console.git",
-                "reference": "77ee469e1102ceccc316d2f667ba8594c4dfcf32"
+                "reference": "620cf932e7e2abd7e4c79279f2e4e6656d7e71d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/console/zipball/77ee469e1102ceccc316d2f667ba8594c4dfcf32",
-                "reference": "77ee469e1102ceccc316d2f667ba8594c4dfcf32",
+                "url": "https://api.github.com/repos/KsoftM/console/zipball/620cf932e7e2abd7e4c79279f2e4e6656d7e71d6",
+                "reference": "620cf932e7e2abd7e4c79279f2e4e6656d7e71d6",
                 "shasum": ""
             },
             "require": {
@@ -42,9 +42,9 @@
             "description": "command line interface for php in development.",
             "support": {
                 "issues": "https://github.com/KsoftM/console/issues",
-                "source": "https://github.com/KsoftM/console/tree/v0.2.1"
+                "source": "https://github.com/KsoftM/console/tree/v0.2.2"
             },
-            "time": "2022-02-19T15:34:39+00:00"
+            "time": "2022-06-27T03:42:55+00:00"
         },
         {
             "name": "ksoftm/mini-data",
