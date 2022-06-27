@@ -253,7 +253,7 @@ class Make
 
         $cf->registerHelp();
 
-        log::block(function () use ($cf, $args) {
+        Log::block(function () use ($cf, $args) {
             $cf->run($args);
         });
     }
